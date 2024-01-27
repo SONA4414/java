@@ -1,0 +1,108 @@
+(A)AIM: To write a Java program to display the table using Labels in Grid Layout.
+SOURCE CODE:
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+public class DisplayTable
+{
+	public static void main(String[] args) 
+	{
+	JFrame f = new JFrame("FILE READING EXAMPLE");
+		try 
+		{
+		Scanner st=new Scanner(new FileReader("Emp.txt"));
+                        st.useDelimiter("\\s*,\\s*");
+			while(st.hasNext())
+			{
+				f.add(new Label(st.next()));
+			f.setLayout(new GridLayout(6,2));
+				f.setSize(400,200);
+				f.setVisible(true);
+			}
+		} 
+		 catch (Exception ex)
+		{
+			System.out.println("Error reading file ");
+		} 
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+(B)AIM: To write a Java program that works as a simple calculator. 
+
+SOURCE CODE:
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*	
+<applet code="Calc" height=300 width=300>
+</applet>
+*/
+public class Calc extends Applet implements ActionListener
+{
+	TextField tf;
+	double arg=0;
+	String op="=";
+	boolean start=true;
+	public void init()
+	{
+		setLayout(new BorderLayout());
+		tf=new TextField("0");
+		add(tf,BorderLayout.NORTH);
+		Panel p=new Panel();
+		p.setLayout(new GridLayout(4,4));
+		String buttons="123/456*789-0.+=";
+		for(int i=0;i<buttons.length();i++)
+		{
+			Button b=new Button(buttons.substring(i,i+1));
+			p.add(b);
+			b.addActionListener(this);
+		}
+		add(p);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		String s=ae.getActionCommand();
+		if('0'<=s.charAt(0)&&s.charAt(0)<='9'||s.equals("."))
+		{
+			if(start)
+			tf.setText(s);
+			else
+			tf.setText(tf.getText()+s);
+			start=false;
+		}
+		else
+		{
+			calcu(Double.parseDouble(tf.getText()));
+			op=s;
+			start=true;
+		}	
+	}
+	public void calcu(double n)
+	{
+		if(op.equals("+"))
+		arg+=n;
+		else
+		if(op.equals("-"))
+		arg-=n;
+		else
+		if(op.equals("*"))
+		arg*=n;
+		else
+		if(op.equals("/"))
+		{
+		try{
+		        arg/=n;
+		    }
+		   catch(ArithmeticException e)
+		  {
+		   tf.setText("Arithmetic Exception");
+		  }
+		}
+		else
+		if(op.equals("="))
+		arg=n;
+		tf.setText(""+arg);
+	}}
