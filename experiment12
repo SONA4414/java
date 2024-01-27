@@ -1,0 +1,80 @@
+AIM: To develop Swing application which uses JList, JTree, JTable
+SOURCE CODE: JList
+import javax.swing.*;  
+    public class ListExmp  
+    {  
+         ListExmp(){  
+            JFrame f= new JFrame();  
+            DefaultListModel<String> l1 = new DefaultListModel<>();  
+              l1.addElement("Item1");  
+              l1.addElement("Item2");  
+              l1.addElement("Item3");  
+              l1.addElement("Item4");  
+              JList<String> list = new JList<>(l1);  
+              list.setBounds(100,100, 75,75);  
+              f.add(list);  
+              f.setSize(400,400);  
+              f.setLayout(null);  
+              f.setVisible(true);  
+              f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         }  
+
+ public static void main(String args[])  
+        {  
+       new ListExmp();  
+        }
+}  
+SOURCE CODE: JTree
+    import javax.swing.*;  
+    import javax.swing.tree.DefaultMutableTreeNode;  
+    public class TreeEx 
+{  
+    JFrame f;  
+    TreeEx(){  
+        f=new JFrame();   
+        DefaultMutableTreeNode style=new DefaultMutableTreeNode("Style");  
+        DefaultMutableTreeNode color=new DefaultMutableTreeNode("color");  
+        DefaultMutableTreeNode font=new DefaultMutableTreeNode("font");  
+        style.add(color);  
+        style.add(font);  
+        DefaultMutableTreeNode red=new DefaultMutableTreeNode("red");  
+        DefaultMutableTreeNode blue=new DefaultMutableTreeNode("blue");  
+        DefaultMutableTreeNode green=new DefaultMutableTreeNode("green");  
+        color.add(red); 
+        color.add(blue); 
+        color.add(green);      
+        JTree jt=new JTree(style);  
+        f.add(jt);  
+        f.setSize(250,250);  
+        f.setVisible(true);  
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }  
+    public static void main(String[] args) {  
+        new TreeEx();  
+    }
+}  
+SOURCE CODE: JTable
+    import javax.swing.*;    
+    public class TableEx
+   {    
+        JFrame f;    
+        TableEx()
+       {    
+        f=new JFrame();    
+        String data[][]={ {"501","ravi","50000"},    
+                              {"502","raju","70000"},    
+                              {"503","ramu","90000"}};    
+        String column[]={"ID","NAME","SALARY"};         
+        JTable jt=new JTable(data,column);    
+        JScrollPane sp=new JScrollPane(jt);    
+        f.add(sp);          
+        f.setSize(300,400);    
+        f.setVisible(true);    
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }     
+        public static void main(String[] args) 
+       {    
+        new TableEx();    
+       }    
+  }  
+
