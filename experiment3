@@ -1,0 +1,52 @@
+(A)AIM: To write a java program to demonstrate method overloading and method Overriding
+
+SOURCE CODE
+class MethodOverLoad
+  {
+ void calValue()
+ {
+ int x=20;
+ x=x*x;
+ System.out.println("Sqrt of x is:"+x);
+ }
+ void calValue(int y)
+ {
+ y=y*y*y;
+ System.out.println("Cube of y is:"+y);
+ }
+ void calValue(int m,int n)
+ {
+  int z=m*n;
+ System.out.println("Product of m and n  is:"+z);
+ } }
+ class MOL
+ {
+ public static void main(String args[])
+ {
+ MethodOverLoad m=new MethodOverLoad();
+ m.calValue();
+ m.calValue(10,20);
+ m.calValue(10);
+ }
+ }
+
+SOURCE CODE
+
+classHuman{
+//Overridden method
+publicvoid eat()
+{
+System.out.println("Human is eating");
+}
+}
+classBoyextendsHuman{
+//Overriding method
+publicvoid eat(){
+System.out.println("Boy is eating");
+}
+publicstaticvoid main(String args[]){
+Boy obj =newBoy();
+//This will call the child class version of eat()
+      obj.eat();
+}
+}
