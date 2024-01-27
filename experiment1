@@ -1,0 +1,62 @@
+experiment 1 
+week 1 To write a Java program that prints all real solutions to the quadratic equation ax2 +bx + c = 0.
+Read in a, b, c and use the quadratic formula. If the discriminate b2-4ac is negative, 
+display a message stating that there are no real solutions.
+
+SOURCE CODE:
+import java.util.Scanner; 
+class Roots
+{ 
+		public static void main(String args[]) 
+		{ 
+			int a,b,c; 
+			double x,y;
+			Scanner s=new Scanner(System.in);
+			System.out.println("Enter the values of a,b, and c");
+			a=s.nextInt();
+			b=s.nextInt();
+			c=s.nextInt();
+			double f=(b*b)-4*a*c;
+System.out.println("F value="+f);
+			if(f<0)
+{ 
+				System.out.println("No real roots");
+			}
+			else
+			{
+			double l=Math.sqrt(f);
+				x=((-b-l)/(2*a));
+				y=((-b+l)/(2*a));
+				System.out.println("Roots of given equation:"+x+"\t"+y);
+			}
+		}
+
+	}
+
+week 1 (B)AIM: To write a Java program that prompts the user for an integer and then prints out all
+prime numbers up to that integer. (use Scanner class to read input)
+
+SOURCE CODE:
+
+class Prime
+ {
+	public static void main(String[] args)
+	{
+		int n,p;
+		Scanner s=new Scanner(System.in);
+System.out.println("Enter upto which number prime numbers are needed");
+		n=s.nextInt();
+		System.out.println("<------------Prime numbers------------->");
+		for(int i=2;i<n;i++)
+		{
+			p=0;
+			for(int j=2;j<i/2;j++)
+			{
+				if(i%j==0)
+				p=1;
+			}
+			if(p==0)
+			System.out.println(i);
+		}
+ }
+
